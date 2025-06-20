@@ -1,7 +1,7 @@
 require('dotenv').config();
 const dbConfig = require('../config/db.config');
 const Sequelize = require('sequelize');
-const connectWithDb = new Sequelize(
+const dbConnection = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
   process.env.DB_PASSWORD,
@@ -15,6 +15,6 @@ const connectWithDb = new Sequelize(
 
 const db = {};
 db.Sequelize = Sequelize;
-db.connex = connectWithDb;
-db.packages = require('./packages.model')(connex, Sequelize);
+db.connex = dbConnection;
+db.packages = require('./packages.model')(dbConnection, Sequelize);
 module.exports = db;
