@@ -20,3 +20,6 @@ const PORT = 8088;
 app.listen(PORT, () => {
   console.log(`server is up on port ${PORT}`);
 });
+
+const db = require('./app/models');
+db.connex.sync();
