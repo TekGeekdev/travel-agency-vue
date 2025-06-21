@@ -47,7 +47,7 @@
     <div
       className="text-center text-sm text-white mt-12 border-t border-white/20 pt-4"
     >
-      © {new Date().getFullYear()} Agence de voyage — Tous droits réservés
+      ©Ledeur Mahtieu - Agence de voyage — Tous droits réservés
     </div>
   </footer>
 </template>
