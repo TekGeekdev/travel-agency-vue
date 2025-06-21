@@ -15,12 +15,12 @@
         class="bg-white shadow-md rounded-2xl p-6 hover:shadow-lg transition duration-300"
       >
         <h2 class="text-xl font-semibold mb-2 text-gray-800">
-          {{ onePackage.namePackage }}
+          {{ onePackage.name }}
         </h2>
         <p class="text-gray-600 mb-4">{{ onePackage.description }}</p>
         <div class="flex justify-between items-center">
           <span class="text-lg font-bold text-blue-600">
-            ${{ onePackage.price.toFixed(2) }}
+            ${{ Number(onePackage.price).toFixed(2) }}
           </span>
           <span class="text-sm text-white bg-blue-500 px-3 py-1 rounded-full">
             {{ onePackage.category }}
