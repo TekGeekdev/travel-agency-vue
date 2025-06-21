@@ -1,11 +1,12 @@
 <template>
   <div class="p-6">
     <header class="flex justify-end mb-6">
-      <button
+      <router-link
+        :to="{ name: 'addPackage' }"
         class="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-2 rounded-lg transition"
       >
         Ajouter un forfait
-      </button>
+      </router-link>
     </header>
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <article
@@ -26,16 +27,12 @@
           </span>
         </div>
         <div class="flex justify-end gap-2 mt-4">
-          <button
+          <router-link
+            :to="{ name: 'showPackage', params: { id: onePackage.id } }"
             class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm px-4 py-2 rounded-lg transition"
           >
-            Mis à jour
-          </button>
-          <button
-            class="bg-red-500 hover:bg-red-600 text-white text-sm px-4 py-2 rounded-lg transition"
-          >
-            Supprimer
-          </button>
+            Voir en détail
+          </router-link>
         </div>
       </article>
     </section>
