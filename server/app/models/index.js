@@ -1,5 +1,5 @@
 require('dotenv').config();
-const dbConfig = require('../config/db.config');
+
 const Sequelize = require('sequelize');
 const dbConnection = new Sequelize(
   process.env.DB_NAME,

@@ -3,6 +3,7 @@ module.exports = (app) => {
   const router = require('express').Router();
 
   router.get('/', packages.findAll);
+  router.post('/', packages.create);
 
   app.use('/api/packages', router);
 };

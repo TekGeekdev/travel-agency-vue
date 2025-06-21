@@ -12,3 +12,15 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+exports.create = (req, res) => {
+  Packages.create(req.body)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((error) => {
+      res.status(500).send({
+        message: "Impossible d'insérer la donnée",
+      });
+    });
+};
