@@ -87,7 +87,7 @@
 
       <button
         type="button"
-        @click="savePackage"
+        @click="updatePackage"
         class="w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
       >
         Ajouter Forfait
@@ -114,17 +114,19 @@ export default {
     updatePackage() {
       PackagesDataService.update(this.id, this.updPackage)
         .then(() => {
+          this.updatePack(this.packageIndex, this.updPackage);
           (this.submitted = true),
             (this.message = null),
             this.$router.push({
               name: 'showPackage',
-              params: { id: this.packageIndex },
+              params: { id: this.id },
             });
         })
         .catch((error) => {
           if (error.response && error.response.data.errors) {
             this.formErrors = error.response.data.errors;
           } else {
+            console.log(error.message);
             this.message = error.message;
           }
         });
