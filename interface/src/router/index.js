@@ -4,6 +4,7 @@ import PackagesView from '@/views/PackagesView.vue';
 import PackageView from '@/views/PackageView.vue';
 import AddPackageView from '@/views/AddPackageView.vue';
 import AboutView from '@/views/AboutView.vue';
+import EditPackageView from '@/views/EditPackageView.vue';
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     path: '/package/:id',
     name: 'showPackage',
     component: PackageView,
+  },
+  {
+    path: '/edit-package/:id',
+    name: 'editPackage',
+    component: EditPackageView,
   },
   {
     path: '/add-package',
