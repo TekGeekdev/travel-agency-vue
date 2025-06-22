@@ -4,6 +4,7 @@
     :packages="packages"
     :addPack="newPackage"
     :updatePack="updatePackage"
+    :removePack="removePack"
   />
   <MainFooter />
 </template>
@@ -45,6 +46,9 @@ export default {
       this.packages[index].price = data.price;
       this.packages[index].category = data.category;
       this.packages[index].url_img = data.url_img;
+    },
+    removePack(index) {
+      this.packages.splice(index, 1);
     },
   },
 };
