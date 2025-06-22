@@ -1,6 +1,10 @@
 <template>
   <MainNav />
-  <RouterView :packages="packages" :addPack="newPackage" />
+  <RouterView
+    :packages="packages"
+    :addPack="newPackage"
+    :updatePack="updatePackage"
+  />
   <MainFooter />
 </template>
 
@@ -34,6 +38,13 @@ export default {
   methods: {
     newPackage(addPackage) {
       this.packages.push(addPackage);
+    },
+    updatePackage(index, data) {
+      this.packages[index].name = data.name;
+      this.packages[index].description = data.description;
+      this.packages[index].price = data.price;
+      this.packages[index].category = data.category;
+      this.packages[index].url_img = data.url_img;
     },
   },
 };
