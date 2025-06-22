@@ -46,3 +46,34 @@ exports.findOne = (req, res) => {
       });
     });
 };
+
+exports.update = (req, res) => {
+  const id = req.params.id;
+  Product.update(req.body, {
+    where: { id: id },
+  })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: 'Forfait mise à jour',
+        });
+      } else {
+        res.send({
+          message: 'Forfait introuvable',
+        });
+      }
+    })
+    .catch((error) => {
+      if (error instanceof ValidationError) {
+        const errors = {};
+        error.errors.forEach((e) => {
+          errors[e.path] = e.message;
+        });
+        return res.status(400).send({ errors });
+      }
+
+      res.status(500).send({
+        message: "Erreur serveur lors de l'insertion",
+      });
+    });
+};
