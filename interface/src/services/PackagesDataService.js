@@ -16,6 +16,10 @@ class PackageDataService {
   update(id, data) {
     return http.put(`/packages/${id}`, data);
   }
+
+  delete(id) {
+    return http.delete(`/packages/${id}`);
+  }
 }
 
 export default new PackageDataService();
