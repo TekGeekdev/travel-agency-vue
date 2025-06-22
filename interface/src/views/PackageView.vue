@@ -28,11 +28,12 @@
       </div>
 
       <div class="mt-8 flex gap-4">
-        <button
+        <router-link
+          :to="{ name: 'editPackage', params: { id: onePackage.id } }"
           class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition"
         >
           Modifier
-        </button>
+        </router-link>
         <button
           class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition"
         >
