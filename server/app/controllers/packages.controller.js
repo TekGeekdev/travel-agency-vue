@@ -77,3 +77,28 @@ exports.update = (req, res) => {
       });
     });
 };
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  Packages.destroy({
+    where: { id: id },
+  })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: 'Forfait supprimer',
+        });
+      } else {
+        res.send({
+          message: 'Forfait introuvable',
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message:
+          err.message ||
+          'Adieu Marcos merci pour ta patience, à qui je vais poser mes questions',
+      });
+    });
+};
