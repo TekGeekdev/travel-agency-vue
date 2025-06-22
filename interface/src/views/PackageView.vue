@@ -35,6 +35,8 @@
           Modifier
         </router-link>
         <button
+          type="button"
+          @click="deletePackage"
           class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition"
         >
           Supprimer
@@ -47,8 +49,27 @@
 </template>
 
 <script>
+import PackagesDataService from '@/services/PackagesDataService';
+
 export default {
-  props: ['packages'],
+  props: ['packages', 'removePack'],
+  data() {
+    return {
+      id: parseInt(this.$route.params.id),
+    };
+  },
+  methods: {
+    deletePackage() {
+      PackagesDataService.delete(this.id)
+        .then(() => {
+          this.removePack(this.packageIndex);
+          this.$router.push({ name: 'packages' });
+        })
+        .catch((e) => {
+          this.message = e.response.data.message;
+        });
+    },
+  },
   computed: {
     onePackage() {
       const onePackage = this.packages.find((p) => {
