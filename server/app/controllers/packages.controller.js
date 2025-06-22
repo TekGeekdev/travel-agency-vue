@@ -49,7 +49,7 @@ exports.findOne = (req, res) => {
 
 exports.update = (req, res) => {
   const id = req.params.id;
-  Product.update(req.body, {
+  Packages.update(req.body, {
     where: { id: id },
   })
     .then((num) => {
