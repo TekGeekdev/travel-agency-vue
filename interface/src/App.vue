@@ -1,6 +1,6 @@
 <template>
   <MainNav />
-  <RouterView :packages="packages" />
+  <RouterView :packages="packages" :addPack="newPackage" />
   <MainFooter />
 </template>
 
@@ -31,6 +31,10 @@ export default {
       packages: [],
     };
   },
-  methods: {},
+  methods: {
+    newPackage(addPackage) {
+      this.packages.push(addPackage);
+    },
+  },
 };
 </script>
