@@ -4,6 +4,7 @@ module.exports = (app) => {
 
   router.get('/', packages.findAll);
   router.post('/', packages.create);
+  router.get('/:id', packages.findOne);
 
   app.use('/api/packages', router);
 };
